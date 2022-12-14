@@ -99,7 +99,23 @@ const Wrapper = styled.div`
   }
 `;
 
+// hotelId
+// images[1].url
+// name
+// address.city
+// starRating
+// price
 export const Hotelcard = ({ data, handleOpenHotel }) => {
+// let hotelData ={
+//   hotelId:data.hotelId,
+//   name:data.name,
+//   address:data.address,
+//     starRating:data.starRating,
+//     price:data.price
+// }
+// console.log('hotelData:', hotelData)
+  
+
     return (
         <Wrapper   
             onClick={() => {
