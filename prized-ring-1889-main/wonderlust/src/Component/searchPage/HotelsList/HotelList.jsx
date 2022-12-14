@@ -14,6 +14,11 @@ import { Hotelcard } from "./Hotelcard";
 import Ads from "./Filter/Ad";
 import { PopularFilter } from "./Filter/PopularFilter";
 import GuestRating from "./Filter/GuestRating";
+import NoDataFound from "./Filter/NoDataFound";
+import { PaymentType } from "./Filter/PaymentType";
+import { PropertyType } from "./Filter/PropertyType";
+import { FoodPlans } from "./Filter/FoodPlans";
+import { PopularLocation } from "./Filter/PopularLocation";
 // import { makeStyles } from '@material-ui/core/styles'
 const url = `http://localhost:3004/data`;
 
@@ -145,17 +150,24 @@ export const HotelList = () => {
     handlePriceFilter(range[0], range[1]);
   };
 
-  const handlePriceFilter = (a, b) => {
-    setloading(true);
-    const newData = data.filter((item) => {
-      return item.price >= a && item.price < b;
-    });
+  const handlePriceFilter = useCallback(
+    (a, b) => {
+      setloading(true);
+      if (a === 0 && b === 0) {
+        setHotels(data);
+      } else {
+        const newData = data.filter((item) => {
+          return item.price >= a && item.price < b;
+        });
+        setHotels(newData);
+      }
 
-    setHotels(newData);
-    setTimeout(() => {
-      setloading(false);
-    }, 2000);
-  };
+      setTimeout(() => {
+        setloading(false);
+      }, 1400);
+    },
+    [data]
+  );
 
   const getData = () => {
     setloading(true);
@@ -171,22 +183,23 @@ export const HotelList = () => {
         console.log(err);
       });
   };
-  const handleStar = () => {};
-  //   const handleStar = useCallback(
-  //     (star) => {
-  //       setloading(true);
-  //       const newData = data.filter((item) => {
-  //         return item.starRating >= star;
-  //       });
+  // const handleStar = () => {};
+  const handleStar = useCallback(
+    (star) => {
+      console.log("star:", star);
+      setloading(true);
+      const newData = data.filter((item) => {
+        return item.starRating >= star;
+      });
 
-  //       setHotels(newData);
+      setHotels(newData);
 
-  //       setTimeout(() => {
-  //         setloading(false);
-  //       }, 2000);
-  //     },
-  //     [data]
-  //   );
+      setTimeout(() => {
+        setloading(false);
+      }, 1600);
+    },
+    [data]
+  );
 
   const handleOpenHotel = (id) => {
     history(`/hotels/${id}`);
@@ -266,7 +279,7 @@ export const HotelList = () => {
           <div className="popular-filter">
             <FormControl component="fieldset">
               <RadioGrp aria-label="guest-rating" name="guest-rating" value={priceFilter} onChange={handleChange}>
-                <FormControlLabel value="0" control={<Radio color="secondary" />} label="All" />
+                <FormControlLabel value="0 0" control={<Radio color="secondary" />} label="All" />
                 <FormControlLabel value="0 75" control={<Radio color="secondary" />} label="Less than 75$" />
                 <FormControlLabel value="75 125" control={<Radio color="secondary" />} label="75$ to 125$" labelPlacement="end" />
                 <FormControlLabel value="125 200" control={<Radio color="secondary" />} label="125$ to 200$" labelPlacement="end" />
@@ -277,12 +290,11 @@ export const HotelList = () => {
           </div>
           <PopularFilter></PopularFilter>
           <GuestRating></GuestRating>
-          {/*  /
-          < />
-          <PaymentType />
-          <PropertyType />
+          <PaymentType></PaymentType>
+          <PropertyType></PropertyType>
           <PopularLocation />
-          <Mealplans /> */}
+          <FoodPlans />
+        
         </div>
         {/*------------------------------------------------------------------------------------------>>>>>> Hotel List  */}
 
@@ -291,18 +303,23 @@ export const HotelList = () => {
             <div className="progress">
               <img src={trvloLogo} alt="" />
               Loading.......
-              <CircularProgress />
+              <CircularProgress color="secondary" />
             </div>
-          ) : (
-            hotels.slice(0, 4).map((item) => {
+          ) : hotels.length > 0 ? (
+            hotels.map((item) => {
               return <Hotelcard handleOpenHotel={handleOpenHotel} key={item.hotelId} data={item} />;
             })
+          ) : (
+           <NoDataFound  ></NoDataFound>
+
           )}
         </div>
         {w > 728 && (
           <div className="ads">
             <Ads></Ads>
             <Ads></Ads>
+            <Ads></Ads>
+
           </div>
         )}
       </Wrapper>
