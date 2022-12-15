@@ -1,6 +1,6 @@
 
 import { Route, Routes } from "react-router-dom";
-import LandingPage from "../Component/landingPage/LandingPage";
+import {LandingPage} from "../Component/landingPage/LandingPage";
 import Register from "../Component/register/Register";
 import HotelsListPage from "../Component/searchPage/HotelsListPage";
 import Support from "../Component/support/support";
@@ -18,7 +18,7 @@ import {Admin} from "../Component/Admin/Admin";
                 <Route path="trip" element={<Trip /> } />
                 <Route path="support" element={<Support /> } />
                 <Route path="login" element={<Register /> } />                
-                <Route path="admin" element={<Admin /> } />                
+                <Route path="admin/*" element={<Admin /> } />                
            </Routes>
         
         </div>
