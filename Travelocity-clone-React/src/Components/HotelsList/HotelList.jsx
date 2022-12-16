@@ -74,6 +74,7 @@ const Wrapper = styled.div`
 
 export const HotelList = () => {
   const [hotels, setHotels] = useState([]);
+  console.log('hotels:', hotels[1])
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(false);
   const classes = useStyle();
@@ -84,17 +85,17 @@ export const HotelList = () => {
   const [w, setW] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = () => {
-      setW(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
+    // const handleResize = () => {
+    //   setW(window.innerWidth);
+    // };
+    // window.addEventListener("resize", handleResize);
 
     getData();
     console.log(hotels);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
   }, []);
 
   const handleQueryChange = (val) => {
@@ -252,7 +253,7 @@ export const HotelList = () => {
               <CircularProgress />
             </div>
           ) : (
-            hotels.map((item) => {
+            hotels.slice(0,4).map((item) => {
               return <Hotelcard handleOpenHotel={handleOpenHotel} key={item.hotelId} data={item} />;
             })
           )}
