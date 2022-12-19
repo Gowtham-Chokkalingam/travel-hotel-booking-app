@@ -1,0 +1,221 @@
+.checkout{
+    text-align: center;
+    background-color: #d1c2d9;
+}
+
+.checkout *{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+/* 
+box-shadow: rgba(0,0,3,29)0px 3px 6px;
+}
+.roomCard:hover{
+   transform: scale(.9);
+   background-color: blueviolet;
+   color: white;
+} */
+
+.pageHead{
+    width: fit-content;
+    padding: 10px 55px;
+    text-transform: uppercase;
+    margin: auto;
+    border-bottom: 2px solid rgb(241, 5, 174);
+    margin-bottom: 25px;
+    font-weight: bolder;color: #7d2ae8;
+    font-size: 20px;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.info{
+    width: 60%;
+    min-height: 80vh;
+    padding: 15px;
+}
+
+.hotelBox{
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 15px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.hotelBox>div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 15px 15px;
+}
+.hotelBox>div>h2{
+    margin-bottom: 15px;
+    color: #7d2ae8;
+    font-weight: bolder;
+    font-size: 18px;
+}
+.hotelBox>div{
+    width: 48%;
+}
+
+.hotelBox>div:last-child{
+    display: flex;
+    position: relative;
+}
+.hotelBox>div:last-child>button{
+    position: absolute;
+    top: 50%;
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.568);
+    cursor: pointer;
+    
+}
+.hotelBox>div:last-child>button:hover{
+    color: #fff;
+}
+.hotelBox>div:last-child>button:first-child{
+    left: 0;
+}
+.hotelBox>div:last-child>button:last-child{
+    right: 0;
+}
+.hotelBox>div>img{
+    width: 100%;
+    max-height: 220px;
+    border-radius: 0 15px 15px 0;
+    box-shadow: rgba(0,0,3,29)0px 3px 6px;
+}
+
+.infoTag1{
+    display: flex;
+    text-transform: capitalize;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 7px 15px;
+    font-size: 19px;
+    
+}
+.infoTag1 p:first-child{
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 15px;
+    color: #7d2ae8;
+}
+.infoStars{
+    display: flex;
+    color: orange;
+    padding: 7px 15px;
+    justify-content: center;
+   
+}
+
+.infoTag2{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.infoTag2>p{
+    background-color: rgb(5, 194, 5);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,3,29)0px 3px 6px;
+}
+
+
+/* roomBox */
+
+/* .roomBox{
+
+} */
+
+.roomBox>h2{
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #7d2ae8;
+    font-weight: bolder;
+}
+.roomBoxGrid{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0 20px;
+    flex-wrap: wrap;
+}
+
+
+.generalData{
+    padding: 15px;
+    text-align: left;
+    color: #6f09f4;
+}
+/* pricing  */
+.pricing{
+    width: 35%;
+    min-height: 80vh;
+    /* border: 1px solid black; */
+    box-shadow: rgba(1,0,0,.4)0px 0px 1px 1px;
+    padding: 1rem;
+}
+
+.foodDiv{
+       text-align: left;
+       display: flex;
+       margin: 1rem 0 0 0;
+      
+}
+.foodDiv>h2{
+    margin: 0rem 1rem 0 1rem;
+      font-size: 16px;
+      font-weight: bolder;
+      color: #6f09f4;
+}
+.foodDiv>h2>input{
+    /* margin: 0rem 1rem 0 1rem; */
+     width: 3rem;
+}
+/* ***************** Page total amount ****************** */
+.calculationLK{
+    margin: .5rem 0rem .5rem 0rem;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.ProceedBtn{
+    background-color:#6b0aea;
+    border-radius:.2rem;
+    width: max-content;
+    padding: .3rem .6rem .3rem .6rem;
+    margin: 0rem .6rem 0rem .6rem;
+    color: white;
+    margin-top: 1rem;
+}
+.ProceedBtn:hover{
+    background-color: rgb(12, 1, 22);
+    color: white;
+}
+
+.calculationLK .showTrough{
+    display: inline-block;
+    color: #000;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.calculationLK .striketrhough{
+    display: inline-block;
+    color: grey;
+    font-size: 13px;
+    text-decoration: line-through;
+}

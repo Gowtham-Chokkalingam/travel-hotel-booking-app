@@ -18,7 +18,7 @@ import { Mealplans } from "./Filters/MealPlans";
 import { useHistory } from "react-router";
 // import { useAxios } from "../../Hooks/useAxios";
 
-const url = `http://localhost:3004/data`;
+const url = ` http://localhost:3004/data`;
 
 const useStyle = makeStyles({
   button: {
@@ -126,6 +126,7 @@ export const HotelList = () => {
       .get(url)
       .then((res) => {
         const { data } = res;
+        console.log('data:', data)
         setData(data);
         setHotels(data);
         setloading(false);
@@ -253,7 +254,7 @@ export const HotelList = () => {
               <CircularProgress />
             </div>
           ) : (
-            hotels.slice(0,4).map((item) => {
+            hotels.map((item) => {
               return <Hotelcard handleOpenHotel={handleOpenHotel} key={item.hotelId} data={item} />;
             })
           )}

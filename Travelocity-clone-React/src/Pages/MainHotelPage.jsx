@@ -11,7 +11,8 @@ const MainHotelPage = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const { hotelData } = useAxios(`${url}?hotelId=${id}`)
-    // console.log('hotelData:', hotelData)
+    console.log('hotelData[0]:', hotelData[0])
+    console.log('hotelData:', hotelData)
 
     useEffect(() => {
         setTimeout(() => {

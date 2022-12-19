@@ -11,10 +11,12 @@ import Modal from '@material-ui/core/Modal'
 import CloseIcon from '@material-ui/icons/Close';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
+// subHotel
 
 const HotelDetails = ({ hotelData, id }) => {
 
     const { images } = hotelData
+    console.log('roomTypes:', hotelData.roomTypes)
 
     const options = [
         { title: "Overview", to: "#" },

@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import { Chakra } from "../Components/Chakra";
 import { Footer } from "../Components/Footer/Footer";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { MainHomePage } from "../Pages/Home_page";
@@ -19,6 +20,9 @@ export function RoutesPage() {
                 <Route exact path="/signUp" component={SignUpPage} />
                 <Route exact path="/signIn" component={SignInPage} />
                 <Route exact path="/payment" component={PaymentPage} />
+
+              
+              
             </Switch>
             <Footer />
         </div>
